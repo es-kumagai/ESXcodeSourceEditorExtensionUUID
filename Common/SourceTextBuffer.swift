@@ -9,11 +9,21 @@
 import Foundation
 import XcodeKit
 
+/// A wrapper type of XCSourceTextBuffer that supplies additional features.
+///
+/// - attention: At first I attempted to implement features with type extension,
+///   but the application crashed when the features is called from Xcode Source
+///   Editor Extension running with Objective-C runtime.
+///   Because these features implemented by this class.
 final class SourceTextBuffer {
 	
+	/// Current Source Text Buffer.
 	let buffer: XCSourceTextBuffer
+	
+	/// Source Text Lines managed by SourceTextBuffer.Lines class.
 	private(set) var lines: Lines!
 	
+	/// Creates an instance containing `textBuffer` passed in the argument.
 	init(buffer textBuffer: XCSourceTextBuffer) {
 		
 		buffer = textBuffer
@@ -23,10 +33,13 @@ final class SourceTextBuffer {
 
 extension SourceTextBuffer {
 	
+	/// The type to manage Source Text Lines of `owner`.
 	final class Lines {
 		
+		/// The parent instance that owns this instance.
 		fileprivate unowned let owner: SourceTextBuffer
 		
+		/// Creates an instance with this owner.
 		init(owner: SourceTextBuffer) {
 			
 			self.owner = owner
@@ -36,62 +49,22 @@ extension SourceTextBuffer {
 
 extension SourceTextBuffer {
 	
+	/// Creates an instance containing the source text buffer that `invocation` have.
 	convenience init(invocation: XCSourceEditorCommandInvocation) {
 		
 		self.init(buffer: invocation.buffer)
 	}
 	
+	/// The text selections in the buffer.
 	var selections: Array<XCSourceTextRange> {
 		
 		return buffer.selections.map { $0 as! XCSourceTextRange }
 	}
 }
 
-extension SourceTextBuffer.Lines : BidirectionalCollection {
-	
-	var startIndex: Int {
-		
-		return 0
-	}
-	
-	var endIndex: Int {
-		
-		return owner.buffer.lines.count
-	}
-	
-	subscript (offset: Int) -> String {
-		
-		get {
-			
-			return owner.buffer.lines[offset] as! String
-		}
-		
-		set {
-			
-			if newValue.isEmpty {
-				
-				owner.buffer.lines.removeObject(at: offset)
-			}
-			else {
-				
-				owner.buffer.lines[offset] = newValue
-			}
-		}
-	}
-	
-	func index(after i: Int) -> Int {
-		
-		return i + 1
-	}
-	
-	func index(before i: Int) -> Int {
-		
-		return i - 1
-	}
-}
-
 extension SourceTextBuffer.Lines {
 	
+	/// Accesses the lines specified by the text range.
 	subscript (range range: XCSourceTextRange) -> String {
 		
 		get {
@@ -156,3 +129,67 @@ extension SourceTextBuffer.Lines {
 		}
 	}
 }
+
+// MARK: - Collection
+extension SourceTextBuffer.Lines : BidirectionalCollection {
+	
+	/// The position of the first line in a nonempty collection.
+	var startIndex: Int {
+		
+		return 0
+	}
+
+	/// The position one greater than the last line.
+	///
+	/// If the collection is empty, this is equal to `startIndex`.
+	var endIndex: Int {
+		
+		return owner.buffer.lines.count
+	}
+	
+	/// Accesses the lines specified by the offset.
+	///
+	/// - Parameter offset: The number of offset to specify a line.
+	/// - Parameter newValue: The string for set. If it is empty, the line will remove.
+	/// - Returns: The string specified by the offset. This includes a new line character at the end of the line.
+	subscript (offset: Int) -> String {
+		
+		get {
+			
+			return owner.buffer.lines[offset] as! String
+		}
+		
+		set (newValue) {
+			
+			if newValue.isEmpty {
+				
+				owner.buffer.lines.removeObject(at: offset)
+			}
+			else {
+				
+				owner.buffer.lines[offset] = newValue
+			}
+		}
+	}
+	
+	/// Returns an index that immediately after the given index.
+	///
+	/// - Parameter i: A valid index of this collection.
+	/// - Returns: The index value immediately after `i`.
+	/// - Precondition: `i` must be less than `endIndex`.
+	func index(after i: Int) -> Int {
+		
+		return i + 1
+	}
+	
+	/// Returns an index that immediately before the given index.
+	///
+	/// - Parameter i: A valid index of this collection.
+	/// - Returns: The index value immediately before `i`.
+	/// - Precondition: `i` must be greater than `startIndex`.
+	func index(before i: Int) -> Int {
+		
+		return i - 1
+	}
+}
+
