@@ -63,7 +63,7 @@
 		B18E91FE1DD8271700D93FD0 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
 		B18E92001DD8271700D93FD0 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		B18E92021DD8271700D93FD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B18E923C1DD8392900D93FD0 /* SourceEditorExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SourceEditorExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B18E923C1DD8392900D93FD0 /* ESXcodeSourceEditorExtensionUUID.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESXcodeSourceEditorExtensionUUID.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18E923E1DD8392900D93FD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18E92401DD8392900D93FD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B18E92421DD8392900D93FD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B18E91F61DD8271700D93FD0 /* Generate UUID.appex */,
-				B18E923C1DD8392900D93FD0 /* SourceEditorExtension.app */,
+				B18E923C1DD8392900D93FD0 /* ESXcodeSourceEditorExtensionUUID.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,9 +181,9 @@
 			productReference = B18E91F61DD8271700D93FD0 /* Generate UUID.appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
-		B18E923B1DD8392900D93FD0 /* SourceEditorExtension */ = {
+		B18E923B1DD8392900D93FD0 /* ESXcodeSourceEditorExtensionUUID */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B18E92481DD8392900D93FD0 /* Build configuration list for PBXNativeTarget "SourceEditorExtension" */;
+			buildConfigurationList = B18E92481DD8392900D93FD0 /* Build configuration list for PBXNativeTarget "ESXcodeSourceEditorExtensionUUID" */;
 			buildPhases = (
 				B18E92381DD8392900D93FD0 /* Sources */,
 				B18E92391DD8392900D93FD0 /* Frameworks */,
@@ -196,9 +196,9 @@
 			dependencies = (
 				B18E924D1DD8394200D93FD0 /* PBXTargetDependency */,
 			);
-			name = SourceEditorExtension;
+			name = ESXcodeSourceEditorExtensionUUID;
 			productName = SourceEditorExtension;
-			productReference = B18E923C1DD8392900D93FD0 /* SourceEditorExtension.app */;
+			productReference = B18E923C1DD8392900D93FD0 /* ESXcodeSourceEditorExtensionUUID.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -235,7 +235,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B18E923B1DD8392900D93FD0 /* SourceEditorExtension */,
+				B18E923B1DD8392900D93FD0 /* ESXcodeSourceEditorExtensionUUID */,
 				B18E91F51DD8271700D93FD0 /* GenerateUUID */,
 			);
 		};
@@ -553,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B18E92481DD8392900D93FD0 /* Build configuration list for PBXNativeTarget "SourceEditorExtension" */ = {
+		B18E92481DD8392900D93FD0 /* Build configuration list for PBXNativeTarget "ESXcodeSourceEditorExtensionUUID" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B18E92491DD8392900D93FD0 /* Debug */,
