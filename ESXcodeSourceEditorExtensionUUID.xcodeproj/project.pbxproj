@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B11975901DD8A01300CF3B8E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B119758E1DD89FED00CF3B8E /* String.swift */; };
-		B11975931DD8A03000CF3B8E /* XcodeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11975911DD8A02D00CF3B8E /* XcodeKit.swift */; };
 		B18E91FA1DD8271700D93FD0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18E91F91DD8271700D93FD0 /* Cocoa.framework */; };
 		B18E91FF1DD8271700D93FD0 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E91FE1DD8271700D93FD0 /* SourceEditorExtension.swift */; };
 		B18E92011DD8271700D93FD0 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E92001DD8271700D93FD0 /* SourceEditorCommand.swift */; };
@@ -56,7 +55,6 @@
 
 /* Begin PBXFileReference section */
 		B119758E1DD89FED00CF3B8E /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		B11975911DD8A02D00CF3B8E /* XcodeKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XcodeKit.swift; sourceTree = "<group>"; };
 		B18E91F61DD8271700D93FD0 /* Generate UUID.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Generate UUID.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18E91F91DD8271700D93FD0 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B18E91FD1DD8271700D93FD0 /* GenerateUUID.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GenerateUUID.entitlements; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 			children = (
 				B18E92661DD845FF00D93FD0 /* SourceTextBuffer.swift */,
 				B119758E1DD89FED00CF3B8E /* String.swift */,
-				B11975911DD8A02D00CF3B8E /* XcodeKit.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -268,7 +265,6 @@
 				B18E91FF1DD8271700D93FD0 /* SourceEditorExtension.swift in Sources */,
 				B18E92011DD8271700D93FD0 /* SourceEditorCommand.swift in Sources */,
 				B11975901DD8A01300CF3B8E /* String.swift in Sources */,
-				B11975931DD8A03000CF3B8E /* XcodeKit.swift in Sources */,
 				B18E92681DD8460300D93FD0 /* SourceTextBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
