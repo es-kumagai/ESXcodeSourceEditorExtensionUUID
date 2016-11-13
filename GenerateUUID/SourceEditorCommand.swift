@@ -13,15 +13,14 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
 	
 	func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
 		
-		let uuid = UUID()		
+		let uuid = UUID()
 		let sourceBuffer = SourceTextBuffer(invocation: invocation)
-
+		
 		for selection in sourceBuffer.selections {
-
+			
 			sourceBuffer.lines[range: selection] = uuid.description
 		}
 		
 		completionHandler(nil)
 	}
-	
 }
