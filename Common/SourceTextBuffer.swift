@@ -9,46 +9,19 @@
 import Foundation
 import XcodeKit
 
-extension String {
-	
-	func index(offsetBy n: IndexDistance) -> Index {
-	
-		return index(startIndex, offsetBy: n)
-	}
-	
-	func indicesOf(start: Int, end: Int) -> Range<String.Index> {
-		
-		return index(offsetBy: start) ..< index(offsetBy: end)
-	}
-	
-	func substring(fromOffset offset: Int) -> String {
-		
-		return substring(from: index(offsetBy: offset))
-	}
-	
-	func substring(toOffset offset: Int) -> String {
-		
-		return substring(to: index(offsetBy: offset))
-	}
-}
-
-extension XCSourceTextPosition {
-	
-	// The number of line at end.
-	var endLine: Int {
-		
-		switch column {
-			
-		case 0:
-			return line
-			
-		default:
-			return line + 1
-		}
-	}
-}
-
 final class SourceTextBuffer {
+	
+	let buffer: XCSourceTextBuffer
+	private(set) var lines: Lines!
+	
+	init(buffer textBuffer: XCSourceTextBuffer) {
+		
+		buffer = textBuffer
+		lines = Lines(owner: self)
+	}
+}
+
+extension SourceTextBuffer {
 	
 	final class Lines {
 		
@@ -59,19 +32,13 @@ final class SourceTextBuffer {
 			self.owner = owner
 		}
 	}
-	
-	let buffer: XCSourceTextBuffer
-	private(set) var lines: Lines!
+}
+
+extension SourceTextBuffer {
 	
 	convenience init(invocation: XCSourceEditorCommandInvocation) {
 		
 		self.init(buffer: invocation.buffer)
-	}
-	
-	init(buffer textBuffer: XCSourceTextBuffer) {
-		
-		buffer = textBuffer
-		lines = Lines(owner: self)
 	}
 	
 	var selections: Array<XCSourceTextRange> {
