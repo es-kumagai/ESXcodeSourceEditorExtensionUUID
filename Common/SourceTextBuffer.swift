@@ -18,7 +18,7 @@ import XcodeKit
 final class SourceTextBuffer {
 	
 	/// Current Source Text Buffer.
-	let buffer: XCSourceTextBuffer
+	let rawBuffer: XCSourceTextBuffer
 	
 	/// Source Text Lines managed by SourceTextBuffer.Lines class.
 	private(set) var lines: Lines!
@@ -26,7 +26,7 @@ final class SourceTextBuffer {
 	/// Creates an instance containing `textBuffer` passed in the argument.
 	init(buffer textBuffer: XCSourceTextBuffer) {
 		
-		buffer = textBuffer
+		rawBuffer = textBuffer
 		lines = Lines(owner: self)
 	}
 }
@@ -58,7 +58,7 @@ extension SourceTextBuffer {
 	/// The text selections in the buffer.
 	var selections: Array<XCSourceTextRange> {
 		
-		return buffer.selections.map { $0 as! XCSourceTextRange }
+		return rawBuffer.selections.map { $0 as! XCSourceTextRange }
 	}
 }
 
@@ -144,7 +144,7 @@ extension SourceTextBuffer.Lines : BidirectionalCollection {
 	/// If the collection is empty, this is equal to `startIndex`.
 	var endIndex: Int {
 		
-		return owner.buffer.lines.count
+		return owner.rawBuffer.lines.count
 	}
 	
 	/// Accesses the lines specified by the offset.
@@ -156,18 +156,18 @@ extension SourceTextBuffer.Lines : BidirectionalCollection {
 		
 		get {
 			
-			return owner.buffer.lines[offset] as! String
+			return owner.rawBuffer.lines[offset] as! String
 		}
 		
 		set (newValue) {
 			
 			if newValue.isEmpty {
 				
-				owner.buffer.lines.removeObject(at: offset)
+				owner.rawBuffer.lines.removeObject(at: offset)
 			}
 			else {
 				
-				owner.buffer.lines[offset] = newValue
+				owner.rawBuffer.lines[offset] = newValue
 			}
 		}
 	}
