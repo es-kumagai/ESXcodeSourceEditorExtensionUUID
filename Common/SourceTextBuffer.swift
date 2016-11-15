@@ -60,6 +60,12 @@ extension SourceTextBuffer {
 		
 		return rawBuffer.selections.map { $0 as! XCSourceTextRange }
 	}
+	
+	/// Returns the Unique Type Identifier (UTI) of the content in the buffer.
+	var contentUTI: UTI {
+		
+		return UTI(string: rawBuffer.contentUTI)
+	}
 }
 
 extension SourceTextBuffer.Lines {

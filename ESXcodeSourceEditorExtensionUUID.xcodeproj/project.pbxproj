@@ -17,6 +17,8 @@
 		B18E92461DD8392900D93FD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18E92441DD8392900D93FD0 /* Main.storyboard */; };
 		B18E924B1DD8394200D93FD0 /* Generate UUID.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B18E91F61DD8271700D93FD0 /* Generate UUID.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B18E92681DD8460300D93FD0 /* SourceTextBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18E92661DD845FF00D93FD0 /* SourceTextBuffer.swift */; };
+		B18EE3111DDA8FA900C7A2C2 /* UUID.Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EE3101DDA8FA900C7A2C2 /* UUID.Style.swift */; };
+		B18EE3131DDA909500C7A2C2 /* UTI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18EE3121DDA909500C7A2C2 /* UTI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		B18E92451DD8392900D93FD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B18E92471DD8392900D93FD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B18E92661DD845FF00D93FD0 /* SourceTextBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceTextBuffer.swift; sourceTree = "<group>"; };
+		B18EE3101DDA8FA900C7A2C2 /* UUID.Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUID.Style.swift; sourceTree = "<group>"; };
+		B18EE3121DDA909500C7A2C2 /* UTI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			children = (
 				B18E91FE1DD8271700D93FD0 /* SourceEditorExtension.swift */,
 				B18E92001DD8271700D93FD0 /* SourceEditorCommand.swift */,
+				B18EE3101DDA8FA900C7A2C2 /* UUID.Style.swift */,
 				B18E92021DD8271700D93FD0 /* Info.plist */,
 				B18E91FC1DD8271700D93FD0 /* Supporting Files */,
 			);
@@ -154,6 +159,7 @@
 			children = (
 				B18E92661DD845FF00D93FD0 /* SourceTextBuffer.swift */,
 				B119758E1DD89FED00CF3B8E /* String.swift */,
+				B18EE3121DDA909500C7A2C2 /* UTI.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -262,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18EE3111DDA8FA900C7A2C2 /* UUID.Style.swift in Sources */,
 				B18E91FF1DD8271700D93FD0 /* SourceEditorExtension.swift in Sources */,
+				B18EE3131DDA909500C7A2C2 /* UTI.swift in Sources */,
 				B18E92011DD8271700D93FD0 /* SourceEditorCommand.swift in Sources */,
 				B11975901DD8A01300CF3B8E /* String.swift in Sources */,
 				B18E92681DD8460300D93FD0 /* SourceTextBuffer.swift in Sources */,
