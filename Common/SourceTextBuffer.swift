@@ -153,7 +153,10 @@ extension SourceTextBuffer.Lines : BidirectionalCollection {
 		return owner.rawBuffer.lines.count
 	}
 	
-	/// Accesses the lines specified by the offset.
+	/// Accesses the lines specified by the offset, If a line number that is not exists is specified, returns an empty string or inserts empty lines.
+	///
+	/// When editting the last line or the previous line of the last line, The source buffer is not contains the last line.
+	/// For that reason, assumes to empty line is exist there.
 	///
 	/// - Parameter offset: The number of offset to specify a line.
 	/// - Parameter newValue: The string for set. If it is empty, the line will remove.
@@ -162,10 +165,26 @@ extension SourceTextBuffer.Lines : BidirectionalCollection {
 		
 		get {
 			
-			return owner.rawBuffer.lines[offset] as! String
+			switch offset < owner.rawBuffer.lines.count {
+				
+			case true:
+				return owner.rawBuffer.lines[offset] as! String
+				
+			case false:
+				return ""
+			}
 		}
 		
 		set (newValue) {
+			
+			let countOfLines = owner.rawBuffer.lines.count
+			
+			if offset >= countOfLines {
+
+				let emptyLines = Array(repeating: "", count: offset - countOfLines + 1)
+				
+				owner.rawBuffer.lines.addObjects(from: emptyLines)
+			}
 			
 			if newValue.isEmpty {
 				
