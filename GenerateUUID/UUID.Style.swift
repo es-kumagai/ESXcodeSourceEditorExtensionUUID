@@ -32,6 +32,7 @@ extension UUID.ExpressionStyle {
 		switch uti {
 			
 		case "public.source-code",
+		     "com.apple.dt.playground",
 		     "com.apple.dt.playgroundpage":
 			return .quoted(quatation: "\"")
 			
