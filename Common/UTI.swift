@@ -30,7 +30,7 @@ extension UTI {
 	}
 	
 	/// Returns a boolean value whether `value` conforms to other uti specified by `pattern`.
-	static func ~= (pattern: UTI, value: UTI) -> Bool {
+	public static func ~= (pattern: UTI, value: UTI) -> Bool {
 		
 		return value.conforms(to: pattern)
 	}
